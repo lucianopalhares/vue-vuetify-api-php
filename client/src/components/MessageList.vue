@@ -227,12 +227,12 @@
           { text: '#', value: 'id' },
           { text: 'Chave', value: 'chave' },
           { text: 'Path', value: 'path' },
-          { text: 'Mensage', value: 'mensagem' },
+          { text: 'Mensagem', value: 'mensagem' },
           { text: 'Opções', value: 'actions', sortable: false },
         ]
       },
       formTitle () {
-        return this.editedIndex === -1 ? 'Novo Mensagem' : 'Editar Mensagem'
+        return this.editedIndex === -1 ? 'Nova Mensagem' : 'Editar Mensagem'
       }
     },
     methods: {

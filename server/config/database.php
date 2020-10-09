@@ -1,9 +1,9 @@
 <?php 
     class Database {
         private $host = "127.0.0.1";
-        private $database_name = "nome do banco de dados";
-        private $username = "usuario";
-        private $password = "senha";
+        private $database_name = "php-cadastro-rvsystem";
+        private $username = "root";
+        private $password = "0";
 
         public $conn;
 
