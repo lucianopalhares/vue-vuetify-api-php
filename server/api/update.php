@@ -6,20 +6,29 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
     
     include_once '../config/database.php';
-    include_once '../class/employees.php';
+    include_once '../class/messages.php';
     
     $database = new Database();
     $db = $database->getConnection();
     
-    $item = new Employee($db);
+    $item = new Message($db);
     
     $data = json_decode(file_get_contents("php://input"));
     
     $item->id = $data->id;
-    
-    if($item->deleteEmployee()){
-        echo json_encode("Employee deleted.");
+    $item->chave = $data->chave;
+    $item->path = $data->path;
+    $item->mensagem = $data->mensagem;
+
+    if($item->updateMessage()){
+        
+        $response = ['status'=>true,'data'=> $item,'msg'=>'Mensagem Atualizada com sucesso.'];
+
+        echo json_encode($response);
     } else{
-        echo json_encode("Data could not be deleted");
+
+        $response = ['status'=>false,'msg'=>'Erro ao atualizar mensagem.'];
+
+        echo json_encode($response);
     }
 ?>

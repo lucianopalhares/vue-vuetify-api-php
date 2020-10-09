@@ -6,24 +6,28 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once '../config/database.php';
-    include_once '../class/employees.php';
+    include_once '../class/messages.php';
 
     $database = new Database();
     $db = $database->getConnection();
 
-    $item = new Employee($db);
+    $item = new Message($db);
 
     $data = json_decode(file_get_contents("php://input"));
 
-    $item->name = $data->name;
-    $item->email = $data->email;
-    $item->age = $data->age;
-    $item->designation = $data->designation;
-    $item->created = date('Y-m-d H:i:s');
+    $item->chave = $data->chave;
+    $item->path = $data->path;
+    $item->mensagem = $data->mensagem;
     
-    if($item->createEmployee()){
-        echo 'Employee created successfully.';
+    if($item->createMessage()){
+        
+        $response = ['status'=>true,'data'=> $item,'msg'=>'Mensagem cadastrada com sucesso.'];
+
+        echo json_encode($response);
     } else{
-        echo 'Employee could not be created.';
+
+        $response = ['status'=>false,'msg'=>'Erro no cadastro da mensagem.'];
+
+        echo json_encode($response);
     }
 ?>

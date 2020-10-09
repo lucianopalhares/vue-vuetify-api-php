@@ -6,26 +6,24 @@
     header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
     include_once '../config/database.php';
-    include_once '../class/employees.php';
+    include_once '../class/messages.php';
 
     $database = new Database();
     $db = $database->getConnection();
 
-    $item = new Employee($db);
+    $item = new Message($db);
 
     $item->id = isset($_GET['id']) ? $_GET['id'] : die();
   
-    $item->getSingleEmployee();
+    $item->getSingleMessage();
 
-    if($item->name != null){
+    if($item->chave != null){
         // create array
         $emp_arr = array(
             "id" =>  $item->id,
-            "name" => $item->name,
-            "email" => $item->email,
-            "age" => $item->age,
-            "designation" => $item->designation,
-            "created" => $item->created
+            "chave" => $item->chave,
+            "path" => $item->path,
+            "mensagem" => $item->mensagem
         );
       
         http_response_code(200);
@@ -34,6 +32,6 @@
       
     else{
         http_response_code(404);
-        echo json_encode("Employee not found.");
+        echo json_encode("Mensagem não encontrada.");
     }
 ?>

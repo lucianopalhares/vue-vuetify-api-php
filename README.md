@@ -1,11 +1,42 @@
-# php-rest-api
-This is a step by step PHP 7 & MySQL REST API tutorial, In this tutorial i am going to share with you how to create a PHP 7 CRUD (Create, Read, Update, Delete) RESTful API with MySQL database.
+#  vue-vuetify-api-php
 
-[Create Simple PHP 7 CRUD REST API with MySQL & PHP PDO](https://www.positronx.io/create-simple-php-crud-rest-api-with-mysql-php-pdo/)
+#  FRONT-END
 
-## PHP CRUD API
-* `GET - http://localhost:8080/api/read.php` Fetch ALL Records
-* `GET - localhost:8080/api/single_read.php/?id=2` Fetch Single Record
-* `POST - http://localhost:8080/api/create.php` Create Record
-* `POST - http://localhost:8080/api/update.php` Update Record
-* `DELETE - localhost:8080/api/delete.php` Remove Records
+```
+cd client
+
+certifique de ter 'node' e 'npm' instalado na maquina
+
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+
+acesse http://localhost:8080/
+```
+
+#  BACK-END
+
+```
+rode o servidor com acesso a pasta 
+/server
+
+crie um banco de dados e carregue o arquivo sql em /server/config/mensagens.sql
+
+em /server/config/database.php configure o acesso ao banco de dados
+
+private $host = "127.0.0.1";
+private $database_name = "nome do banco de dados";
+private $username = "usuario";
+private $password = "senha";
+```
+
+#  DONE
+
+```
+npm run serve
+
+acesse http://localhost:8080/
+```
