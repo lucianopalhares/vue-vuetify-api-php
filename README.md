@@ -8,6 +8,7 @@ cd client
 certifique de ter 'node' e 'npm' instalado na maquina
 
 npm install
+
 ```
 
 ### Compiles and hot-reloads for development
@@ -31,6 +32,9 @@ private $host = "127.0.0.1";
 private $database_name = "nome do banco de dados";
 private $username = "usuario";
 private $password = "senha";
+
+pegue a url do servidor e cole em /client/src/components/MessageList.vue na linha 212
+em baseURI
 ```
 
 #  DONE
